@@ -1,0 +1,7 @@
+[32mINFO    [0m basepage:basepage.py:28 等待元素可见：('id', 'com.xueqiu.android:id/tv_search')
+[32mINFO    [0m basepage:basepage.py:36 元素已可见。等待元素可见总时长:4.824228048324585
+[32mINFO    [0m basepage:basepage.py:78 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/tv_search')
+[32mINFO    [0m basepage:basepage.py:247 获取('id', 'com.xueqiu.android:id/search_input_text')元素成功
+[32mINFO    [0m basepage:basepage.py:289 SendKeys alibaba in ('id', 'com.xueqiu.android:id/search_input_text') success.
+[32mINFO    [0m basepage:basepage.py:247 获取('id', 'com.xueqiu.android:id/name')元素成功
+[32mINFO    [0m test_search:test_search.py:35 用例执行成功

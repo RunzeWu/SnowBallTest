@@ -1,0 +1,8 @@
+automationName: UiAutomator2    #自动化引擎
+platformName: Android   #平台名称
+platformVersion: 8.0   #平台版本
+deviceName: emulator-5554   #设备名称
+noReset: False   #重置应用
+appPackage: com.xueqiu.android   #包名
+appActivity: .view.WelcomeActivityAlias  #入口页面
+autoGrantPermissions: True

@@ -1,0 +1,4 @@
+[32mINFO    [0m basepage:basepage.py:247 获取('id', 'com.xueqiu.android:id/search_input_text')元素成功
+[32mINFO    [0m basepage:basepage.py:289 SendKeys xiaomi in ('id', 'com.xueqiu.android:id/search_input_text') success.
+[32mINFO    [0m basepage:basepage.py:247 获取('id', 'com.xueqiu.android:id/name')元素成功
+[32mINFO    [0m test_search:test_search.py:35 用例执行成功
