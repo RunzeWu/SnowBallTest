@@ -3,6 +3,7 @@
  @Author:       吴润泽
 '''
 import time
+import allure
 from appium.webdriver import WebElement
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
@@ -12,6 +13,8 @@ from common import contants
 from common.contants import screenshot_dir
 from common.mylog import get_logger
 from appium.webdriver.common.mobileby import MobileBy
+from appium.webdriver.common.touch_action import TouchAction
+from appium import webdriver
 
 
 logger=get_logger("basepage")
@@ -19,9 +22,8 @@ logger=get_logger("basepage")
 
 class BasePage:
 
-    def __init__(self, driver):
+    def __init__(self, driver: webdriver):
         self.driver = driver
-
 
     #等待元素可见
     def wait_eleVisible(self,locator,timeout=30,poll_frequency=0.5,model_name="model")->WebElement:
@@ -134,7 +136,6 @@ class BasePage:
             self.save_webImg(model_name)
             raise
 
-
     def save_webImg(self,model_name):
         #文件名称=模块名称_当前时间.png
         filePath = screenshot_dir + "/{0}_{1}.png".format(model_name, time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()))
@@ -230,6 +231,14 @@ class BasePage:
     # appium 封装了 关于键盘的操作
     def hide_keyboard(self):
         self.driver.hide_keyboard()
+
+    def long_press(self, locator, duration=2000):
+        ta = TouchAction(self.driver)
+        ta.long_press(locator,duration=duration)
+
+    def tab_srceen(self):
+        ta = TouchAction(self.driver)
+        ta.tap()
 
         '''
         以上为appium原生操作，以下为H5页面操作

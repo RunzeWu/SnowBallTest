@@ -8,6 +8,7 @@ from desired_caps.get_desired_caps import desired_caps
 from pages.page_objects.search_page import SearchPage
 from pages.page_objects.index_page import IndexPage
 from pages.page_objects.login_page import LoginPage
+from pages.page_objects.zixuan_page import ZixuanPage
 
 
 # 根据测试用例需求，动态配置启动参数。
@@ -51,4 +52,16 @@ def search_env(start_app):
     driver.close_app()
 
 
-
+@pytest.fixture(scope="class")
+def zixuan_fixture():
+    driver = basedriver(noReset=True)
+    index_page = IndexPage(driver=driver)
+    search_page = SearchPage(driver=driver)
+    zixuan_page = ZixuanPage(driver)
+    index_page.click_zixuan()
+    zixuan_page.click_search_icon()
+    search_page.search("alibaba")
+    search_page.click_first_result()
+    yield search_page, zixuan_page
+    driver.close_app()
+    driver.quit()
