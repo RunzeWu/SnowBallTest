@@ -1,0 +1,26 @@
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('-android uiautomator', 'new UiSelector().text("自选")')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:8.310411930084229
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('-android uiautomator', 'new UiSelector().text("自选")')
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/action_search')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:1.2593011856079102
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/action_search')
+[32mINFO    [0m basepage:basepage.py:293 获取('id', 'com.xueqiu.android:id/search_input_text')元素成功
+[32mINFO    [0m basepage:basepage.py:335 SendKeys alibaba in ('id', 'com.xueqiu.android:id/search_input_text') success.
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/name')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:0.7009389400482178
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/name')
+[32mINFO    [0m test_自选:test_zixuan.py:42 点击加自选
+[32mINFO    [0m basepage:basepage.py:47 等待元素可见：('id', 'com.xueqiu.android:id/follow_btn')
+[32mINFO    [0m basepage:basepage.py:56 元素已可见。等待元素可见总时长:2.0748291015625
+[32mINFO    [0m basepage:basepage.py:111 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/follow_btn')
+[32mINFO    [0m basepage:basepage.py:67 查找模块：model下的元素：('xpath', '//*[contains(@text,"添加成功")]')
+[32mINFO    [0m basepage:basepage.py:70 查找到元素成功
+[32mINFO    [0m basepage:basepage.py:67 查找模块：model下的元素：('id', 'com.xueqiu.android:id/followed_btn')
+[32mINFO    [0m basepage:basepage.py:70 查找到元素成功
+[32mINFO    [0m basepage:basepage.py:161 获取元素文本值：模块 model 下的元素 ('id', 'com.xueqiu.android:id/followed_btn')
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/action_close')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:0.04786086082458496
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/action_close')
+[32mINFO    [0m basepage:basepage.py:293 获取('id', 'com.xueqiu.android:id/portfolio_stockName')元素成功
+[32mINFO    [0m basepage:basepage.py:514 get attribute in ('id', 'com.xueqiu.android:id/portfolio_stockName')
+[32mINFO    [0m test_自选:test_zixuan.py:65 用例执行成功

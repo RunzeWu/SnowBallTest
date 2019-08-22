@@ -1,0 +1,15 @@
+[32mINFO    [0m basepage:basepage.py:67 查找模块：model下的元素：('id', 'com.xueqiu.android:id/portfolio_stockName')
+[32mINFO    [0m basepage:basepage.py:70 查找到元素成功
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('xpath', "//*[@text='删除']")
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:0.08712601661682129
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('xpath', "//*[@text='删除']")
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/action_search')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:1.0566871166229248
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/action_search')
+[32mINFO    [0m basepage:basepage.py:293 获取('id', 'com.xueqiu.android:id/search_input_text')元素成功
+[32mINFO    [0m basepage:basepage.py:335 SendKeys alibaba in ('id', 'com.xueqiu.android:id/search_input_text') success.
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/name')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:3.697464942932129
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/name')
+[32mINFO    [0m basepage:basepage.py:47 等待元素可见：('id', 'com.xueqiu.android:id/follow_btn')
+[32mINFO    [0m basepage:basepage.py:56 元素已可见。等待元素可见总时长:1.5234348773956299

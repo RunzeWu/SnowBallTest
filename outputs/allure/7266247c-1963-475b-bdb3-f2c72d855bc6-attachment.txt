@@ -1,0 +1,4 @@
+2019-08-22 18:16:12,050 - basepage - INFO - 获取('id', 'com.xueqiu.android:id/search_input_text')元素成功 - [basepage.py:293]
+2019-08-22 18:16:13,171 - basepage - INFO - SendKeys google in ('id', 'com.xueqiu.android:id/search_input_text') success. - [basepage.py:335]
+2019-08-22 18:16:16,869 - basepage - INFO - 获取('id', 'com.xueqiu.android:id/name')元素成功 - [basepage.py:293]
+2019-08-22 18:16:16,886 - test_search - INFO - 用例执行成功 - [test_search.py:35]

@@ -1,0 +1,23 @@
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/user_profile_icon')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:8.200005054473877
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/user_profile_icon')
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/rl_login_phone')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:2.3480358123779297
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/rl_login_phone')
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/tv_login_with_account')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:1.2281410694122314
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/tv_login_with_account')
+[32mINFO    [0m basepage:basepage.py:67 查找模块：model下的元素：('id', 'com.xueqiu.android:id/login_account')
+[32mINFO    [0m basepage:basepage.py:70 查找到元素成功
+[32mINFO    [0m basepage:basepage.py:126 输入操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/login_account')输入文本 17751810779159
+[32mINFO    [0m basepage:basepage.py:67 查找模块：model下的元素：('id', 'com.xueqiu.android:id/login_password')
+[32mINFO    [0m basepage:basepage.py:70 查找到元素成功
+[32mINFO    [0m basepage:basepage.py:126 输入操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/login_password')输入文本 123456
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/button_next')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:0.5257568359375
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/button_next')
+[32mINFO    [0m basepage:basepage.py:293 获取('id', 'com.xueqiu.android:id/md_content')元素成功
+[32mINFO    [0m basepage:basepage.py:29 等待元素可见：('id', 'com.xueqiu.android:id/md_buttonDefaultPositive')
+[32mINFO    [0m basepage:basepage.py:37 元素已可见。等待元素可见总时长:0.03941082954406738
+[32mINFO    [0m basepage:basepage.py:97 点击操作：模块 model 下的元素 ('id', 'com.xueqiu.android:id/md_buttonDefaultPositive')
+[32mINFO    [0m test_login:test_login.py:39 获取info:手机号码填写错误成功
