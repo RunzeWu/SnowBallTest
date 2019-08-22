@@ -27,6 +27,7 @@ class TestZixuan:
         self.driver.close_app()
         self.driver.quit()
 
+    @allure.story("测试加自选")
     def test_add_collection(self):
         driver = self.driver
         with allure.step("前提步骤"):
@@ -67,6 +68,7 @@ class TestZixuan:
             allure.attach(search_page.get_windows_img())
             raise e
 
+    @allure.story("测试删自选")
     def test_delete_collection(self):
         driver = self.driver
         with allure.step("前提步骤"):

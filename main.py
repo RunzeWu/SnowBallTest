@@ -5,4 +5,4 @@
 import pytest
 
 if __name__ == '__main__':
-    pytest.main(['-m run zixuan',"alluredir=/Users/wurunze/PycharmProjects/SnowBallTest/outputs/allure"])
+    pytest.main()
