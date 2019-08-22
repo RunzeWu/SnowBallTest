@@ -9,6 +9,9 @@ from pages.page_objects.search_page import SearchPage
 from pages.page_objects.index_page import IndexPage
 from pages.page_objects.login_page import LoginPage
 from pages.page_objects.zixuan_page import ZixuanPage
+from common.mylog import get_logger
+
+logger = get_logger("conftest")
 
 
 # 根据测试用例需求，动态配置启动参数。
@@ -26,7 +29,7 @@ def basedriver(noReset=None, port=4723, **kwargs):
 
 @pytest.fixture(scope="class")
 def start_app():
-    driver = basedriver()
+    driver = basedriver(noReset=True)
     yield driver
     driver.quit()
 
@@ -52,16 +55,17 @@ def search_env(start_app):
     driver.close_app()
 
 
-@pytest.fixture(scope="class")
-def zixuan_fixture():
-    driver = basedriver(noReset=True)
-    index_page = IndexPage(driver=driver)
-    search_page = SearchPage(driver=driver)
-    zixuan_page = ZixuanPage(driver)
-    index_page.click_zixuan()
-    zixuan_page.click_search_icon()
-    search_page.search("alibaba")
-    search_page.click_first_result()
-    yield search_page, zixuan_page
-    driver.close_app()
-    driver.quit()
+# @pytest.fixture(scope="class")
+# def zixuan_fixture():
+#     driver = basedriver(noReset=True)
+#     index_page = IndexPage(driver=driver)
+#     search_page = SearchPage(driver=driver)
+#     zixuan_page = ZixuanPage(driver = driver)
+#     index_page.click_zixuan()
+#     zixuan_page.click_search_icon()
+#     search_page.search("alibaba")
+#     search_page.click_first_result()
+#     # search_page.click_collet_btn()
+#     yield search_page, zixuan_page
+#     # driver.close_app()
+#     # driver.quit()

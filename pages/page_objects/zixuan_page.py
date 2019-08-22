@@ -10,13 +10,14 @@ from appium.webdriver.common.mobileby import MobileBy
 class ZixuanPage(BasePage):
     _search_icon_loc = (MobileBy.ID, "com.xueqiu.android:id/action_search")
     _collet_loc = (MobileBy.ID,"com.xueqiu.android:id/portfolio_stockName")
-    _delete_collet_loc = (MobileBy.XPATH, "//*[@text, \"删除\"]")
+    _delete_collet_loc = (MobileBy.XPATH, "//*[@text='删除']")
 
     def click_search_icon(self):
         return self.click_element(self._search_icon_loc)
 
     def long_press_collect(self):
-        self.long_press(self._collet_loc)
+        ele = self.get_element(self._collet_loc)
+        self.long_press(ele, duration=2000)
 
     def get_collection_name(self):
         return self.get_attribute(self._collet_loc,"text")

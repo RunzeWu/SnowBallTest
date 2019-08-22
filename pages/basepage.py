@@ -16,8 +16,7 @@ from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.common.touch_action import TouchAction
 from appium import webdriver
 
-
-logger=get_logger("basepage")
+logger = get_logger("basepage")
 
 
 class BasePage:
@@ -25,31 +24,49 @@ class BasePage:
     def __init__(self, driver: webdriver):
         self.driver = driver
 
-    #等待元素可见
-    def wait_eleVisible(self,locator,timeout=30,poll_frequency=0.5,model_name="model")->WebElement:
+    # 等待元素可见
+    def wait_eleVisible(self, locator, timeout=30, poll_frequency=0.5, model_name="model") -> WebElement:
         logger.info("等待元素可见：{}".format(locator))
         try:
             wait_start_time = time.time()
-            ele = WebDriverWait(self.driver,timeout,poll_frequency).until(EC.visibility_of_element_located(locator))
-            #获取结束等待的时间
+            ele = WebDriverWait(self.driver, timeout, poll_frequency).until(EC.visibility_of_element_located(locator))
+            # 获取结束等待的时间
             wait_end_time = time.time()
-            #获取等待的总时长 - 以秒为单位
+            # 获取等待的总时长 - 以秒为单位
             wait_time = wait_end_time - wait_start_time
             logger.info("元素已可见。等待元素可见总时长:{}".format(wait_time))
             return ele
         except:
-            #写进日志
+            # 写进日志
             logger.exception("等待元素可见超时。")
-            #截图 - 直接通过图片名称就知道截的是什么图。
+            # 截图 - 直接通过图片名称就知道截的是什么图。
             self.save_webImg(model_name)
             raise
 
-
-    #查找元素
-    def get_element(self,locator,model_name="model")-> WebElement:
-        logger.info("查找模块：{}下的元素：{}".format(model_name,locator))
+    def wait_elesVisible(self, locator, timeout=30, poll_frequency=0.5, model_name="model") -> WebElement:
+        logger.info("等待元素可见：{}".format(locator))
         try:
-            ele =  self.driver.find_element(*locator)
+            wait_start_time = time.time()
+            ele = WebDriverWait(self.driver, timeout, poll_frequency).until(
+                EC.visibility_of_any_elements_located(locator))
+            # 获取结束等待的时间
+            wait_end_time = time.time()
+            # 获取等待的总时长 - 以秒为单位
+            wait_time = wait_end_time - wait_start_time
+            logger.info("元素已可见。等待元素可见总时长:{}".format(wait_time))
+            return ele
+        except:
+            # 写进日志
+            logger.exception("等待元素可见超时。")
+            # 截图 - 直接通过图片名称就知道截的是什么图。
+            self.save_webImg(model_name)
+            raise
+
+    # 查找元素
+    def get_element(self, locator, model_name="model") -> WebElement:
+        logger.info("查找模块：{}下的元素：{}".format(model_name, locator))
+        try:
+            ele = self.driver.find_element(*locator)
             logger.info("查找到元素成功")
             return ele
         except:
@@ -66,18 +83,18 @@ class BasePage:
             logger.info("查找到元素成功")
             return ele
         except:
-                # 写进日志
+            # 写进日志
             logger.exception("查找元素失败。")
-                # 截图 - 直接通过图片名称就知道截的是什么图。
+            # 截图 - 直接通过图片名称就知道截的是什么图。
             self.save_webImg(model_name)
             raise
 
-    #点击元素
-    def click_element(self,locator,model_name="model"):
-        #元素查找
-        ele = self.wait_eleVisible(locator,model_name=model_name)
-        #元素操作
-        logger.info("点击操作：模块 {} 下的元素 {}".format(model_name,locator))
+    # 点击元素
+    def click_element(self, locator, model_name="model"):
+        # 元素查找
+        ele = self.wait_eleVisible(locator, model_name=model_name)
+        # 元素操作
+        logger.info("点击操作：模块 {} 下的元素 {}".format(model_name, locator))
         try:
             ele.click()
         except:
@@ -87,12 +104,26 @@ class BasePage:
             self.save_webImg(model_name)
             raise
 
-    #输入内容
-    def input_text(self,locator,value,model_name="model"):
+    def click_first_of_elements(self, locator, model_name="model"):
+        # 元素查找
+        ele = self.wait_elesVisible(locator, model_name=model_name)[0]
+        # 元素操作
+        logger.info("点击操作：模块 {} 下的元素 {}".format(model_name, locator))
+        try:
+            ele.click()
+        except:
+            # 写进日志
+            logger.exception("点击元素操作失败：")
+            # 截图 - 直接通过图片名称就知道截的是什么图。
+            self.save_webImg(model_name)
+            raise
+
+    # 输入内容
+    def input_text(self, locator, value, model_name="model"):
         # 元素查找
         ele = self.get_element(locator, model_name)
         # 元素操作
-        logger.info("输入操作：模块 {} 下的元素 {}输入文本 {}".format(model_name, locator,value))
+        logger.info("输入操作：模块 {} 下的元素 {}输入文本 {}".format(model_name, locator, value))
         try:
             ele.clear()
             ele.send_keys(value)
@@ -103,11 +134,12 @@ class BasePage:
             self.save_webImg(model_name)
             raise
 
-    def clear_input(self, locator,model_name):
+    def clear_input(self, locator, model_name):
         ele = self.get_element(locator, model_name="model")
         return ele.clear()
-    #获取元素的属性
-    def get_element_attribute(self,locator,attr,model_name="model"):
+
+    # 获取元素的属性
+    def get_element_attribute(self, locator, attr, model_name="model"):
         # 元素查找
         ele = self.get_element(locator, model_name)
         # 元素操作
@@ -121,8 +153,8 @@ class BasePage:
             self.save_webImg(model_name)
             raise
 
-    #获取元素的文本内容
-    def get_element_text(self,locator, model_name="model"):
+    # 获取元素的文本内容
+    def get_element_text(self, locator, model_name="model"):
         # 元素查找
         ele = self.get_element(locator, model_name)
         # 元素操作
@@ -136,9 +168,10 @@ class BasePage:
             self.save_webImg(model_name)
             raise
 
-    def save_webImg(self,model_name):
-        #文件名称=模块名称_当前时间.png
-        filePath = screenshot_dir + "/{0}_{1}.png".format(model_name, time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()))
+    def save_webImg(self, model_name):
+        # 文件名称=模块名称_当前时间.png
+        filePath = screenshot_dir + "/{0}_{1}.png".format(model_name,
+                                                          time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()))
         try:
             self.driver.save_screenshot(filePath)
             logger.info("截图成功，文件路径为：{}".format(filePath))
@@ -156,15 +189,17 @@ class BasePage:
 
     # 滑屏操作 - 左右、上下
     # 左右,默认向左
-    def swipe_left_right(self,start_per=0.9,end_per=0.1):
+    def swipe_left_right(self, start_per=0.9, end_per=0.1):
         size = self.get_device_size()
-        self.driver.swipe(size["width"]*start_per,size["height"]*0.5,size["width"]*end_per,size["height"]*0.5,200)
+        self.driver.swipe(size["width"] * start_per, size["height"] * 0.5, size["width"] * end_per,
+                          size["height"] * 0.5, 200)
         time.sleep(0.5)
 
     # 上下滑动，默认向上滑
-    def swipe_up_down(self,start_per=0.9,end_per=0.1):
+    def swipe_up_down(self, start_per=0.9, end_per=0.1):
         size = self.get_device_size()
-        self.driver.swipe(size["width"] * 0.5, size["height"] * start_per, size["width"] *0.5 ,size["height"] * end_per, 200)
+        self.driver.swipe(size["width"] * 0.5, size["height"] * start_per, size["width"] * 0.5,
+                          size["height"] * end_per, 200)
         time.sleep(0.5)
 
     # 列表滑动到底部
@@ -181,7 +216,7 @@ class BasePage:
         old = ''
         while old != new:
             old = new
-            self.swipe_up_down(start_per=0.1,end_per=0.9)
+            self.swipe_up_down(start_per=0.1, end_per=0.9)
             new = self.driver.page_source
 
     # 翻页查找某个字符串
@@ -201,17 +236,18 @@ class BasePage:
                 # driver.find_element_by_android_uiautomator('new UiSelector().text("逻辑思维题")').click()
 
     # toast获取
-    def get_toast_msg(self,text):
+    def get_toast_msg(self, text):
         # xpath表达式 -- 文本匹配去获取
         ele_loc = '//*[contains(@text,"{}")]'.format(text)
         # uiautomator2
         # 等待元素存在，而不是元素可见。
-        WebDriverWait(self.driver,10,0.01).until(EC.presence_of_element_located((MobileBy.XPATH,ele_loc)))
-        return self.get_element((MobileBy.XPATH,ele_loc)).text
-
+        WebDriverWait(self.driver, 10, 0.01).until(EC.presence_of_element_located((MobileBy.XPATH, ele_loc)))
+        text = self.get_element((MobileBy.XPATH, ele_loc)).text
+        WebDriverWait(self.driver, 10, 0.01).until(EC.invisibility_of_element((MobileBy.XPATH, ele_loc)))
+        return text
 
     # h5切换
-    def switch_to_H5(self, h5_name,model_name="model"):
+    def switch_to_H5(self, h5_name, model_name="model"):
         try:
             self.driver.switch_to.context(h5_name)
             current = self.driver.current_context
@@ -220,7 +256,7 @@ class BasePage:
             logger.error("切换失败")
             self.save_webImg(model_name)
 
-    def switch_to_native(self,model_name="model"):
+    def switch_to_native(self, model_name="model"):
         try:
             self.driver.switch_to.default_content()
             logger.info("切换原生页面成功")
@@ -232,17 +268,18 @@ class BasePage:
     def hide_keyboard(self):
         self.driver.hide_keyboard()
 
-    def long_press(self, locator, duration=2000):
+    def long_press(self, locator, duration=1000):
         ta = TouchAction(self.driver)
-        ta.long_press(locator,duration=duration)
+        ta.long_press(locator, duration=duration).perform()
 
-    def tab_srceen(self):
+    def tab_srceen(self, ele=None):
         ta = TouchAction(self.driver)
-        ta.tap()
+        ta.tap(element=ele).perform()
 
         '''
         以上为appium原生操作，以下为H5页面操作
         '''
+
     def get_visible_element(self, locator, eqc=20) -> WebElement:
         '''
         定位元素，参数locator为元祖类型
@@ -278,7 +315,7 @@ class BasePage:
     def get_clickable_element(self, locator, eqc=20):
         try:
             ele = WebDriverWait(self.driver, timeout=eqc).until(
-            EC.element_to_be_clickable(locator))
+                EC.element_to_be_clickable(locator))
             logger.info('获取{}元素成功'.format(locator))
             return ele
         except:
@@ -474,7 +511,7 @@ class BasePage:
         '''
 
         element = self.get_visible_element(locator)
-        logger.info('get attribute in %s' % locator)
+        logger.info('get attribute in %s' % str(locator))
         return element.get_attribute(name)
 
     def js_execute(self, js):
